@@ -27,8 +27,18 @@ make install
 
 ## Building on Mac OSX
 
+* The --with-headers is required to get build headers.
+* The --with-qt option causes the wireshark GUI to be built.
+    * There are options to use GTK if you want.
+    * At least one of the graphical options must be supplied in order for the wireshark GUI to be built.
+* brew link makes links in the global system folders to the brew managed files. Without this, cmake will not be able to find the necessary .cmake files.
+* If brew link fails because files exist, rerun it with --overwrite.
+
+Building the plugin when you have wireshark manually installed in /Applications can result in some [very weird errors](https://github.com/diamondman/Example_Wireshark_Dissector_Plugin/issues/1). To avoid these issues, uninstall Wireshark.app from /Applications if it is there, or be careful to not use it.
+
 ```bash
-brew install wireshark --with-headers
+brew install wireshark --with-headers --with-qt
+brew link wireshark
 cd ${ThisProjectDir}
 mkdir build
 cd build
