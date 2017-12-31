@@ -47,7 +47,7 @@ register_dissector_files(plugin.c
 
 #Create the library file from all source
 #files, including the generated plugin.c.
-add_library(example SHARED
+add_library(example MODULE
   ${PLUGIN_FILES}
   )
 
