@@ -47,6 +47,8 @@ register_dissector_files(plugin.c
 
 #Create the library file from all source
 #files, including the generated plugin.c.
+#MODULE is required for Mac, as SHARED
+#produces a .dylib file instead of .so.
 add_library(example MODULE
   ${PLUGIN_FILES}
   )
